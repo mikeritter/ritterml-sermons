@@ -3,7 +3,7 @@
 Plugin Name: sermons plugin by mike ritter
 Description: creat sermon custom post types for church website
 Plugin URI: https://github.com/mikeritter/wordpress_plugins/mikeritter-sermons
-Version: 0.0.2
+Version: 0.0.3
 Author: Mike Ritter
 */
 /* Start Adding Functions Below this Line */
@@ -50,34 +50,34 @@ function be_register_taxonomies() {
             'slug'         => 'sermon-date',
             'single_name'  => 'Date',
             'plural_name'  => 'Dates',
-            'post_type'    => 'sermons',
+            'post_type'    => 'ritterml_sermons',
             'rewrite'      => array( 'slug' => 'date' ),
         ),
         array(
             'slug'          =>  'sermon-description',
             'single_name'   =>  'Description',
             'plural_name'   =>  'Descriptions',
-            'post_type'     =>  'sermons',
+            'post_type'     =>  'ritterml_sermons',
         ),
         array(
             'slug'          =>  'sermon-service',
             'single_name'   =>  'Service',
             'plural_name'   =>  'Services',
-            'post_type'     =>  'sermons',
+            'post_type'     =>  'ritterml_sermons',
             'rewrite'       =>  array('slug' => 'service')
             ),
         array(
             'slug'          =>  'sermon-image',
             'single_name'   =>  'Image',
             'plural_name'   =>  'Images',
-            'post_type'     =>  'sermons',
+            'post_type'     =>  'ritterml_sermons',
             'rewrite'       =>  array('slug' => 'image')
             ),
         array(
             'slug'          =>  'sermon-embed',
             'single_name'   =>  'Embed',
             'plural_name'   =>  'Embeds',
-            'post_type'     =>  'sermons',
+            'post_type'     =>  'ritterml_sermons',
             'rewrite'       =>  array('slug' => 'embeds')
             )
     );
