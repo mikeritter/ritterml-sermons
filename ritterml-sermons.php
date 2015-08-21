@@ -3,7 +3,7 @@
 Plugin Name: sermons plugin by mike ritter
 Description: creat sermon custom post types for church website
 Plugin URI: https://github.com/mikeritter/wordpress_plugins/mikeritter-sermons
-Version: 0.0.1
+Version: 0.0.2
 Author: Mike Ritter
 */
 /* Start Adding Functions Below this Line */
