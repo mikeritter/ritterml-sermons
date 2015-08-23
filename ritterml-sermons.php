@@ -1,9 +1,9 @@
 <?php
 /*
 Plugin Name: sermons plugin by mike ritter
-Description: creat sermon custom post types for church website
+Description: create sermon custom post types for church website
 Plugin URI: https://github.com/mikeritter/wordpress_plugins/mikeritter-sermons
-Version: 0.0.3
+Version: 0.0.4
 Author: Mike Ritter
 */
 /* Start Adding Functions Below this Line */
@@ -112,5 +112,7 @@ function be_register_taxonomies() {
 }
 add_action( 'init', 'be_register_taxonomies' );
 
+
+add_action('add_meta_boxes')
 /* Stop Adding Functions Below this Line */
 ?>
