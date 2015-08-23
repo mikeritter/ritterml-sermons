@@ -6,14 +6,19 @@ Plugin URI: https://github.com/mikeritter/wordpress_plugins/mikeritter-sermons
 Version: 0.0.4
 Author: Mike Ritter
 */
-/* Start Adding Functions Below this Line */
+
+/*
+ * Outline:
+ * * custom post type
+ * * custom taxonomies
+ * * custom meta boxes
+ */
 
 defined( 'ABSPATH' ) or die( 'No script kiddies please!' );
 
 
 /*
  * Create sermon post type
- *
  */
 
 add_action('init','create_post_type');
@@ -36,6 +41,8 @@ function create_post_type(){
 }
 
 
+add_action( 'init', 'be_register_taxonomies' );
+
 /**
  * Register Multiple Taxonomies
  *
@@ -50,34 +57,34 @@ function be_register_taxonomies() {
             'slug'         => 'sermon-date',
             'single_name'  => 'Date',
             'plural_name'  => 'Dates',
-            'post_type'    => 'ritterml_sermons',
+            'post_type'    => 'sermon',
             'rewrite'      => array( 'slug' => 'date' ),
         ),
         array(
             'slug'          =>  'sermon-description',
             'single_name'   =>  'Description',
             'plural_name'   =>  'Descriptions',
-            'post_type'     =>  'ritterml_sermons',
+            'post_type'     =>  'sermon',
         ),
         array(
             'slug'          =>  'sermon-service',
             'single_name'   =>  'Service',
             'plural_name'   =>  'Services',
-            'post_type'     =>  'ritterml_sermons',
+            'post_type'     =>  'sermon',
             'rewrite'       =>  array('slug' => 'service')
             ),
         array(
             'slug'          =>  'sermon-image',
             'single_name'   =>  'Image',
             'plural_name'   =>  'Images',
-            'post_type'     =>  'ritterml_sermons',
+            'post_type'     =>  'sermon',
             'rewrite'       =>  array('slug' => 'image')
             ),
         array(
             'slug'          =>  'sermon-embed',
             'single_name'   =>  'Embed',
             'plural_name'   =>  'Embeds',
-            'post_type'     =>  'ritterml_sermons',
+            'post_type'     =>  'sermon',
             'rewrite'       =>  array('slug' => 'embeds')
             )
     );
@@ -110,9 +117,35 @@ function be_register_taxonomies() {
     }
     
 }
-add_action( 'init', 'be_register_taxonomies' );
+
+/*
+ * Adding my meta boxes
+ */
+
+add_action('add_meta_boxes','ritterml_sermon_date');
+
+function ritterml_sermon_date(){
+    add_meta_box(
+        'sermon_date',
+        __('Sermon Date','ritterml_sermon'),
+        'sermon_date_meta_box',
+        'normal',
+        'default'
+        );
+}
+
+function sermon_date_meta_box($object,$box){
+    ?>
+
+    <div>
+        <label>Sermon Date:</label><input type="date" />
+    </div>
+
+    <?php
+}
 
 
-add_action('add_meta_boxes')
+
+
 /* Stop Adding Functions Below this Line */
 ?>
