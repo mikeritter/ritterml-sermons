@@ -122,9 +122,9 @@ function be_register_taxonomies() {
  * Adding my meta boxes
  */
 
-add_action('add_meta_boxes','ritterml_sermon_date');
+add_action('add_meta_boxes','ritterml_sermon_date_meta');
 
-function ritterml_sermon_date(){
+function ritterml_sermon_date_meta(){
     add_meta_box(
         'sermon_date',
         __('Sermon Date','ritterml_sermon'),
